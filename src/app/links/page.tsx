@@ -1,6 +1,7 @@
 import { getStoryblokApi } from '~/storyblok/config';
 import { StoryblokStory } from '@storyblok/react/rsc';
 
+
 export default async function Home() {
   const { data } = await fetchData();
 
@@ -13,5 +14,5 @@ export default async function Home() {
 
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
-  return await storyblokApi.get(`cdn/stories/links`, { version: 'draft' });
+  return await storyblokApi.get(`cdn/stories/links`, { version: process.env.NODE_ENV === 'development' ? 'published' : 'draft' });
 }
