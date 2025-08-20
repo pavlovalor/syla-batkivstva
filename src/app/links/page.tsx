@@ -15,9 +15,10 @@ export default async function Home() {
 async function fetchData() {
   const storyblokApi = getStoryblokApi();
   const isStoryblokView = globalThis.self 
+    && globalThis?.location
     && globalThis.self !== globalThis.top 
-    && /_storyblok/.test(globalThis.location.search);
-    
+    && /_storyblok/.test(globalThis?.location?.search);
+
   return await storyblokApi.get(`cdn/stories/links`, { 
     version: isStoryblokView ? 'draft' : 'published'
   });
