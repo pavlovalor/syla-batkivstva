@@ -12,7 +12,7 @@ export default async function Home() {
   );
 }
 
-export async function fetchData() {
+async function fetchData() {
   const storyblokApi = getStoryblokApi();
   return await storyblokApi.get(`cdn/stories/links`, { version: process.env.NODE_ENV === 'development' ? 'published' : 'draft' });
 }
