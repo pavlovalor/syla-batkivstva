@@ -1,9 +1,9 @@
 import { getStoryblokApi } from '~/storyblok/config';
 import { StoryblokStory } from '@storyblok/react/rsc';
-import { PageProps } from '~/storyblok/types';
+import { PageContext } from '~/storyblok/types';
 
 
-export default async function LinksPage(context: PageProps) {
+export default async function LinksPage(context: PageContext) {
   const inEditor = '_storyblok' in context.searchParams;
   const { data } = await fetchData({ draft: inEditor, noStore: inEditor })
 
