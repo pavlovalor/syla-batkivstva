@@ -39,9 +39,9 @@ export function LinkGrid({ blok }: Blok<LinkGridProps>) {
           alt={blok.avatar.alt} 
           title={blok.avatar.title} />
         <a target="_blank" rel="nofollow" href={blok.url}>
-          <h1>@{blok.username}</h1>
+          <h1 className={styles.username}>@{blok.username}</h1>
         </a>
-        <p>{blok.title}</p>
+        <p className={styles.topics}>{blok.title}</p>
 
         <ul className={styles.grid}>
           {blok.links?.map((props, index) => (
