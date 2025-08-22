@@ -1,4 +1,5 @@
 import { Blok, MediaAsset } from '~/storyblok/types';
+import { storyblokEditable } from "@storyblok/react/rsc";
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import cn from 'clsx'
@@ -23,7 +24,7 @@ export interface LinkGridProps {
 
 export function LinkGrid({ blok }: Blok<LinkGridProps>) {
   return (
-    <main>
+    <main {...storyblokEditable(blok as unknown as any)}>
       <svg className={styles.curve} viewBox="0 0 1356 411" fill="none">
         <path d="M477.649 58.4153C532.343 132.609 526.915 226.856 602.844 290.253C694.981 367.423 845.066 397.07 961.719 377.683C1173.05 342.46 1301.18 178.442 1355.71 0.458008H1076.18C1032.77 78.4566 966.17 146.502 855.546 120.188C783.239 103.074 758.842 54.3582 739.946 0.458008H409.644C436.889 14.2512 460.033 34.4733 477.649 58.4153Z" fill="#FFF2E4"/>
         <path d="M0.0449219 410.246C21.1524 328.862 61.636 188.463 118.949 113.846C152.126 70.7205 193.098 25.5198 244.09 0.458008H0.0449219V410.246Z" fill="#FFF2E4"/>
@@ -44,7 +45,7 @@ export function LinkGrid({ blok }: Blok<LinkGridProps>) {
 
         <ul className={styles.grid}>
           {blok.links?.map((props, index) => (
-            <a 
+            <a {...storyblokEditable(props)}
               className={cn(styles.link, styles[props.color], styles[props.size])}
               title={props.title}
               href={props.url}
