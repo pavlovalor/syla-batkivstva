@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getStoryblokApi } from '~/storyblok/config';
 import { StoryblokStory } from '@storyblok/react/rsc';
-import { PageContext } from '~/storyblok/types';
 
 
-export default async function LinksPage(context: PageContext) {
+export default async function LinksPage(context: any) {
   const inEditor = '_storyblok' in context.searchParams;
   const { data } = await fetchData({ draft: inEditor, noStore: inEditor })
 
