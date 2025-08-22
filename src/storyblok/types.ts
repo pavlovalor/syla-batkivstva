@@ -20,7 +20,7 @@ export interface MediaAsset {
   title: string,
 }
 
-export interface PageProps {
+export interface PageContext {
   params: { [key: string]: string | string[] };
   searchParams: { [key: string]: string | string[] | undefined };
 };
