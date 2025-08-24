@@ -1,5 +1,6 @@
 import { Blok, MediaAsset } from '~/storyblok/types';
 import { storyblokEditable } from "@storyblok/react/rsc";
+import instagramLogo from './assets/instagram-logo.svg'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import cn from 'clsx'
@@ -21,8 +22,8 @@ export interface LinkGridProps {
   }>,
 }
 
-
 export function LinkGrid({ blok }: Blok<LinkGridProps>) {
+  console.log
   return (
     <main {...storyblokEditable(blok as never)}>
       <svg className={styles.curve} viewBox="0 0 1356 411" fill="none">
@@ -39,7 +40,14 @@ export function LinkGrid({ blok }: Blok<LinkGridProps>) {
           alt={blok.avatar.alt} 
           title={blok.avatar.title} />
         <a target="_blank" rel="nofollow" href={blok.url}>
-          <h1 className={styles.username}>@{blok.username}</h1>
+          <h1 className={styles.username}>
+            <Image 
+              width={16} height={16}
+              style={{ marginRight: 4 }}
+              src="/instagram-logo.svg"
+              alt="instagram logo" />
+            {blok.username}
+          </h1>
         </a>
         <p className={styles.topics}>{blok.title}</p>
 
@@ -50,8 +58,8 @@ export function LinkGrid({ blok }: Blok<LinkGridProps>) {
               title={props.title}
               href={props.url}
               key={index}>
-                {props.title && <p className={styles.title}>{props.title}</p>}
-                {props.description && <p className={styles.description}>{props.description}</p>}
+                {props.title && <p className={styles.title} key="title">{props.title}</p>}
+                {props.description && <p className={styles.description} key="description">{props.description}</p>}
             </a>
           ))}
         </ul>
