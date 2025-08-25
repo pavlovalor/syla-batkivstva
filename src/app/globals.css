@@ -17,6 +17,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.page {
+  min-height: 100dvh;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

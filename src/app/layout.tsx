@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { StoryblokProvider } from '~/storyblok/Provider.component';
+import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <StoryblokProvider>
-      <html lang="en">
+      <html lang="ua">
+        <head>
+          <link rel="icon" href="/images/favicon.adaptive.svg" type="image/svg+xml" sizes="any" />
+        </head>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
           {children}
         </body>
