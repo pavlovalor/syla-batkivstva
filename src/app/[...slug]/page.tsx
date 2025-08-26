@@ -1,23 +1,12 @@
 import { StoryblokStory } from '@storyblok/react/rsc';
-import { getStoryblokApi } from '~/storyblok/config';
+import { getStory } from '~/storyblok/fetch-story';
 
 
 export default async function DynamicPage(props: {
   params: Promise<{ slug: string[] }>
 }) {
-  const { data } = await getStoryblokApi().get(`cdn/stories/${(await props.params).slug.join('/')}`, { 
-    version: process.env.NODE_ENV !== 'production' ? 'draft' : 'published'
-  })
+  const slug = (await props.params).slug.join('/') || 'root'
+  const data = await getStory(slug, ['navigation', 'footer'])
 
-  return (
-    <div className="page">
-      <nav>
-
-      </nav>
-      <StoryblokStory story={data.story} />
-      <footer>
-        
-      </footer>
-    </div> 
-  )
+  return <StoryblokStory story={data.story} />
 }

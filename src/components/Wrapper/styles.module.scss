@@ -1,0 +1,5 @@
+.wrapper {
+  margin: 0 auto;
+  padding: 0 clamp(8px, 2dvw, 16px);
+  width: clamp(320px, 95%, 1400px);
+}

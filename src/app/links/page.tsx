@@ -1,15 +1,9 @@
-import { getStoryblokApi } from '~/storyblok/config';
 import { StoryblokStory } from '@storyblok/react/rsc';
+import { getStory } from '~/storyblok/fetch-story';
 
 
 export default async function LinksPage() {
-  const { data } = await getStoryblokApi().get(`cdn/stories/links`, { 
-    version: process.env.NODE_ENV !== 'production' ? 'draft' : 'published'
-  })
+  const data = await getStory('links')
 
-  return (
-    <div className="page">
-      <StoryblokStory story={data.story} />
-    </div> 
-  );
+  return <StoryblokStory story={data.story} />
 }

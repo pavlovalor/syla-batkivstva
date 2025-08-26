@@ -19,6 +19,20 @@ export interface MediaAsset {
   title: string,
 }
 
+export interface SbInternalLink {
+  id: string
+  linktype: "story",
+  cached_url: string,
+}
+
+export interface SbExternalLink {
+  id: string
+  linktype: "url",
+  url: string,
+}
+
+export type SbLink = SbInternalLink | SbExternalLink
+
 export interface PageContext {
   params: { [key: string]: string | string[] };
   searchParams: { [key: string]: string | string[] | undefined };
