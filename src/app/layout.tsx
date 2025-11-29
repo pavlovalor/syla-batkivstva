@@ -1,7 +1,7 @@
 import { StoryblokProvider } from '~/storyblok/Provider.component';
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
-import "./globals.css";
+import "~/styles/globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
