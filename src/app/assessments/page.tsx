@@ -26,7 +26,7 @@ export default function AssessmentsPage() {
           {allAssessments.map((assessment) => (
             <Link
               key={assessment.id}
-              href={`/asessments/${assessment.slug}`}
+              href={`/assessments/${assessment.slug}`}
               className="group block p-5 sm:p-6 bg-bg-primary border border-border-secondary rounded-2xl hover:border-border-brand hover:shadow-lg transition-all duration-300"
             >
               {/* Icon */}

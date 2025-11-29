@@ -73,7 +73,7 @@ export default function NotFound() {
                   <p className="text-md text-fg-tertiary">Пройдіть тестування для батьків</p>
                 </div>
                 <Link 
-                  href="/asessments" 
+                  href="/assessments" 
                   className="text-fg-brand-primary font-medium text-md flex items-center gap-1 hover:underline"
                 >
                   Перейти до тестів

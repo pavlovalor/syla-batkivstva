@@ -66,7 +66,7 @@ export function ResultsScreen({ assessment, answers, onRetake }: ResultsScreenPr
           <Button
             size="lg"
             color="primary"
-            href="/asessments"
+            href="/assessments"
             className="w-full sm:w-auto"
           >
             До списку тестів
