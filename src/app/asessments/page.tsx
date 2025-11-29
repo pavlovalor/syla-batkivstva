@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { assessment as sample1 } from './sample1/data';
 import { assessment as sample2 } from './sample2/data';
 
+// Force static generation to ensure this route takes priority over catch-all
+export const dynamic = 'force-static';
+
 const allAssessments = [sample1, sample2];
 
 export default function AssessmentsPage() {
