@@ -142,6 +142,7 @@ export function AssessmentContainer({ assessment }: AssessmentContainerProps) {
           onNext={handleNext}
           canGoPrevious={true}
           isAtLeadingEdge={isAtLeadingEdge}
+          firstUnansweredIndex={firstUnansweredIndex}
         />
       )}
 

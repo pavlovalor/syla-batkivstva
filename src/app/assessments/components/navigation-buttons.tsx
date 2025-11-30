@@ -37,7 +37,7 @@ export function NavigationButtons({
           onClick={onNext}
           isDisabled={!canGoNext}
         >
-          {isLastQuestion ? 'Завершити →' : 'Далі →'}
+          {isLastQuestion ? 'Завершити →' : 'Вперед →'}
         </Button>
       )}
     </div>

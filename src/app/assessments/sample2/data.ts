@@ -1,4 +1,5 @@
 import type { Assessment } from '../components/types';
+import CommunicationStyleResults from './results';
 
 export const assessment: Assessment = {
   id: 'communication-style',
@@ -7,6 +8,7 @@ export const assessment: Assessment = {
   description: 'Перевірте, наскільки ефективно ви спілкуєтесь зі своєю дитиною',
   welcomeMessage: 'Цей тест допоможе оцінити якість вашого спілкування з дитиною та виявити можливі зони для покращення.',
   resultsMessage: 'Дякуємо за чесні відповіді! Використовуйте результати для покращення комунікації з вашою дитиною.',
+  resultsComponent: CommunicationStyleResults,
   questions: [
     {
       id: 'q1',

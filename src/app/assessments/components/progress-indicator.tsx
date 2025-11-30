@@ -3,26 +3,37 @@
 interface ProgressIndicatorProps {
   current: number;
   total: number;
+  firstUnansweredIndex: number; // Index of the first unanswered question (0-based), equals total if all answered
 }
 
-export function ProgressIndicator({ current, total }: ProgressIndicatorProps) {
-  const percentage = ((current + 1) / total) * 100;
+export function ProgressIndicator({ current, total, firstUnansweredIndex }: ProgressIndicatorProps) {
+  // Calculate percentages
+  const currentPercentage = ((current + 1) / total) * 100;
+  
+  // Calculate answered percentage from firstUnansweredIndex
+  // If firstUnansweredIndex is 0, no questions answered (0%)
+  // If firstUnansweredIndex is 3, questions 0,1,2 are answered (3/total * 100%)
+  // If firstUnansweredIndex equals total, all questions answered (100%)
+  const answeredPercentage = firstUnansweredIndex > 0 ? (firstUnansweredIndex / total) * 100 : 0;
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <div className="flex items-center justify-between mb-1.5 sm:mb-2">
-        <span className="text-xs sm:text-sm font-medium text-fg-secondary">
-          Питання {current + 1} з {total}
+    <div className="w-full mb-6">
+      <div className="flex items-center justify-between mb-2">
+        <div className="h-2 bg-gray-200 rounded-full flex-1 mr-4 overflow-hidden relative">
+          {/* Gray bar - shows last answered question position */}
+          <div
+            className="h-full bg-brand-200 rounded-full transition-all duration-500 ease-out absolute inset-0 z-10"
+            style={{ width: `${answeredPercentage}%` }}
+          />
+          {/* Orange bar - shows current question position (on top) */}
+          <div
+            className="h-full bg-brand-500 rounded-full transition-all duration-500 ease-out absolute inset-0 z-20"
+            style={{ width: `${currentPercentage}%` }}
+          />
+        </div>
+        <span className="text-sm font-medium text-gray-700 whitespace-nowrap">
+          {current + 1}/{total}
         </span>
-        <span className="text-xs sm:text-sm font-medium text-fg-tertiary">
-          {Math.round(percentage)}%
-        </span>
-      </div>
-      <div className="h-1.5 sm:h-2 bg-bg-secondary rounded-full overflow-hidden">
-        <div
-          className="h-full bg-fg-brand-primary rounded-full transition-all duration-500 ease-out"
-          style={{ width: `${percentage}%` }}
-        />
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+import type React from 'react';
+
 export interface AnswerOption {
   label: string;
   value: string;
@@ -17,6 +19,7 @@ export interface Assessment {
   welcomeMessage: string;
   questions: Question[];
   resultsMessage: string;
+  resultsComponent?: React.ComponentType<{ answers: Record<string, string> }>;
 }
 
 export interface AssessmentProgress {
@@ -24,6 +27,11 @@ export interface AssessmentProgress {
   answers: Record<string, string>;
   currentQuestionIndex: number;
   lastUpdated: number;
+}
+
+export interface Showcase {
+  title: string;
+  description: React.ReactNode;
 }
 
 export type AssessmentScreen = 'welcome' | 'question' | 'results';

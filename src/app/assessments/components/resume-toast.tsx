@@ -37,7 +37,7 @@ export function ResumeToast({ questionNumber, onResume, onDismiss }: ResumeToast
   return (
     <div
       className={cx(
-        'fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[calc(100%-2rem)] sm:w-auto max-w-md',
+        'fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-max w-max-[90%]',
         isVisible && !isLeaving
           ? 'opacity-100 translate-y-0'
           : 'opacity-0 translate-y-4'
@@ -45,7 +45,7 @@ export function ResumeToast({ questionNumber, onResume, onDismiss }: ResumeToast
     >
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 sm:py-4 bg-bg-primary border border-border-primary rounded-2xl shadow-xl">
         <div className="flex items-center gap-3 sm:gap-4 w-full sm:w-auto">
-          <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-100 flex items-center justify-center">
+          <div className="shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-brand-100 flex items-center justify-center">
             <svg
               className="w-4 h-4 sm:w-5 sm:h-5 text-brand-600"
               fill="none"
@@ -61,7 +61,7 @@ export function ResumeToast({ questionNumber, onResume, onDismiss }: ResumeToast
             </svg>
           </div>
 
-          <div className="flex-1 min-w-0">
+          <div className="flex-1">
             <p className="text-xs sm:text-sm font-medium text-fg-primary">
               Знайдено незавершене тестування
             </p>

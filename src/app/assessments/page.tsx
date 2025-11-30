@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { assessment as sample1 } from './sample1/data';
+import { assessment as sample1 } from './parenting-style/data';
 import { assessment as sample2 } from './sample2/data';
 
 // Force static generation to ensure this route takes priority over catch-all
@@ -30,7 +30,7 @@ export default function AssessmentsPage() {
               className="group block p-5 sm:p-6 bg-bg-primary border border-border-secondary rounded-2xl hover:border-border-brand hover:shadow-lg transition-all duration-300"
             >
               {/* Icon */}
-              <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 rounded-xl bg-linear-to-br from-brand-500 to-brand-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <svg
                   className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                   fill="none"

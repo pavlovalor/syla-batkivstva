@@ -16,6 +16,7 @@ interface QuestionScreenProps {
   onNext: () => void;
   canGoPrevious: boolean;
   isAtLeadingEdge: boolean;
+  firstUnansweredIndex: number;
 }
 
 const optionLabels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
@@ -31,6 +32,7 @@ export function QuestionScreen({
   onNext,
   canGoPrevious,
   isAtLeadingEdge,
+  firstUnansweredIndex,
 }: QuestionScreenProps) {
   const isLastQuestion = questionIndex === totalQuestions - 1;
   const canGoNext = selectedAnswer !== undefined;
@@ -69,10 +71,14 @@ export function QuestionScreen({
   };
 
   return (
-    <div className="min-h-[100dvh] flex flex-col px-4 py-4 sm:px-6 sm:py-8 bg-bg-primary">
+    <div className="min-h-dvh flex flex-col px-4 py-4 sm:px-6 sm:py-8 bg-bg-primary">
       <div className="w-full max-w-2xl mx-auto flex-1 flex flex-col">
         {/* Progress */}
-        <ProgressIndicator current={questionIndex} total={totalQuestions} />
+        <ProgressIndicator 
+          current={questionIndex} 
+          total={totalQuestions}
+          firstUnansweredIndex={firstUnansweredIndex + 1}
+        />
 
         {/* Question */}
         <div className="flex-1 flex flex-col justify-center py-4 sm:py-8">
@@ -105,7 +111,7 @@ export function QuestionScreen({
                 >
                   <span
                     className={cx(
-                      'flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center font-semibold text-sm sm:text-base transition-all duration-200',
+                      'shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center font-semibold text-sm sm:text-base transition-all duration-200',
                       isSelected
                         ? 'bg-fg-brand-primary text-fg-white'
                         : 'bg-bg-tertiary text-fg-secondary'
