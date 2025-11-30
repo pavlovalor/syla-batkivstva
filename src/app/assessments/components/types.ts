@@ -16,9 +16,8 @@ export interface Assessment {
   slug: string;
   title: string;
   description: string;
-  welcomeMessage: string;
   questions: Question[];
-  resultsMessage: string;
+  introComponent?: React.ComponentType;
   resultsComponent?: React.ComponentType<{ answers: Record<string, string> }>;
 }
 

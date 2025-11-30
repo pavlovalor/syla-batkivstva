@@ -6,7 +6,8 @@ import { assessment } from './data';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Визначення стилю батьківства',
+  title: assessment.title,
+  description: assessment.description,
 };
 
 export default function ParentingStyleAssessmentPage() {

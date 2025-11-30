@@ -33,13 +33,11 @@ export function WelcomeScreen({ assessment, onStart }: WelcomeScreenProps) {
           {assessment.title}
         </h1>
 
-        <p className="text-base sm:text-lg text-fg-secondary mb-3 sm:mb-6">
-          {assessment.description}
-        </p>
-
-        <p className="text-sm sm:text-base text-fg-tertiary mb-6 sm:mb-10 max-w-lg mx-auto leading-relaxed">
-          {assessment.welcomeMessage}
-        </p>
+        {assessment.introComponent && (
+          <div className="mb-6 sm:mb-10">
+            <assessment.introComponent />
+          </div>
+        )}
 
         <div className="flex flex-col items-center gap-3 sm:gap-4">
           <Button

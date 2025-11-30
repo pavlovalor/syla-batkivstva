@@ -37,14 +37,10 @@ export function ResultsScreen({ assessment, answers, onRetake }: ResultsScreenPr
           Тестування завершено!
         </h1>
 
-        {assessment.resultsComponent ? (
+        {assessment.resultsComponent && (
           <div className="mb-4 sm:mb-6 text-left">
             <assessment.resultsComponent answers={answers} />
           </div>
-        ) : (
-          <p className="text-base sm:text-lg text-fg-secondary mb-4 sm:mb-6">
-            {assessment.resultsMessage}
-          </p>
         )}
 
         {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-bg-secondary text-fg-tertiary text-xs sm:text-sm mb-6 sm:mb-10">
